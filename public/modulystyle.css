@@ -1,330 +1,366 @@
-/* Resetowanie stylów */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-    line-height: 1.6;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Styl dla kontenera */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    
-  }
-  
-  /* Styl dla nagłówka z tłem GIF */
-  .header-with-gif {
-    position: relative;
-    height: 400px; /* Ustawienie wysokości dla nagłówka */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Styl dla tła GIF */
-  .gif-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 1px;
-    width: 97%;
-    height: 100%;
-    margin: 0 auto;
-    z-index: -1;
-    overflow: hidden; /* Zapobiega wyświetlaniu obrazów, które wykraczają poza obszar tła */
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .gif-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(60%) contrast(120%); /* Regulacja jasności i kontrastu */
-    animation: scaleAnimation 10s infinite alternate; /* Animacja dla tła GIF */
-  }
-  
-  @keyframes scaleAnimation {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.05);
-    }
-  }
-  
-  
-  /* Styl dla nawigacji */
-  #navbar {
-    position: absolute;
-    bottom: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  #navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  #navbar ul li {
-    margin: 0;
-  }
-  
-  #navbar ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 15px 25px; /* Zwiększenie odstępów */
-    transition: color 0.3s ease;
-  }
-  
-  #navbar ul li a:hover {
-    color: #007bff;
-  }
-  
-  /* Dodatkowe style dla efektu przy najechaniu */
-  .gif-background:hover img {
-    transform: scale(1.03); /* Powiększenie tła GIF przy najechaniu myszką */
-  }
-  
-  /* Styl dla kontenera powitalnego */
-  #welcome1 {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 25px;
-  }
-  
-  /* Styl dla powitania */
-  #welcome1 span {
-    color: #ffffff;
-    font-size: 12px;
-  }
-  
-  /* Styl dla ikony wylogowania */
-  #logoutIcon {
-    margin-left: 5px;
-    cursor: pointer;
-  }
-  
-  
-  main {
-    margin-top: 20px;
-  }
-  
-  section {
-    background-color: #fff;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-  }
-  
-  section h2 {
-    margin-top: 0;
-    font-size: 24px !important;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  section ul {
-    list-style: none;
-  }
-  
-  section ul li {
-    margin-bottom: 10px;
-  }
-  
-  footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #007ba8;
-    color: #fff;
-    border-radius: 8px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Styl dla przycisku otwierającego graybox */
-#openFormBtn {
-    padding: 10px 20px; /* Rozmiar przycisku */
-    background-color: #007ba8; /* Kolor tła */
-    color: #fff; /* Kolor tekstu */
-    border: none; /* Brak obramowania */
-    border-radius: 4px; /* Zaokrąglenie krawędzi */
-    cursor: pointer; /* Zmiana kursora na wskaźnik */
-    transition: background-color 0.3s ease; /* Płynne przejście */
-  }
-  
-  #openFormBtn:hover {
-    background-color: #0056b3; /* Kolor tła po najechaniu */
-  }
-  
-  #graybox {
-    display: none; /* Ukryj graybox domyślnie */
-    position: fixed; /* Ustaw pozycję na stałą */
-    top: 0; /* Ustaw pozycję na górze */
-    left: 0; /* Ustaw pozycję na lewej */
-    width: 100%; /* Ustaw szerokość na 100% */
-    height: 100%; /* Ustaw wysokość na 100% */
-    background-color: rgba(0, 0, 0, 0.5); /* Dodaj półprzezroczyste tło */
-    z-index: 999; /* Ustaw z-index na najwyższym poziomie */
-  }
-  
-  #materialForm {
-    display: none; /* Ukryj formularz domyślnie */
-    position: fixed; /* Ustaw pozycję na stałą */
-    top: 50%; /* Ustaw pozycję na środku pionowo */
-    left: 50%; /* Ustaw pozycję na środku poziomo */
-    transform: translate(-50%, -50%); /* Przesuń formularz o połowę swojej szerokości i wysokości w lewo i w górę */
-    width: 80%; /* Ustaw szerokość na 80% */
-    max-width: 600px; /* Ustaw maksymalną szerokość */
-    padding: 20px; /* Dodaj wewnętrzne marginesy */
-    background-color: #fff; /* Ustaw kolor tła na biały */
-    border-radius: 8px; /* Dodaj zaokrąglenie narożników */
-    z-index: 1000; /* Ustaw z-index na najwyższym poziomie */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Dodaj efekt cienia */
-  }
-  
-  #materialForm button[type="submit"],
-  #materialForm button[type="button"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #007ba8;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px; /* Dodaj odstęp od góry */
-  }
-  
-  #materialForm button[type="submit"]:hover,
-  #materialForm button[type="button"]:hover {
-    background-color: #0056b3;
-  }
-  
-  #materialForm button[type="submit"]:focus,
-  #materialForm button[type="button"]:focus {
-    outline: none;
-  }
-  
-  #materialForm label {
-    display: block;
-    margin-bottom: 10px; /* Dodaj odstęp między etykietami */
-  }
-  
-  #materialForm input[type="text"],
-  #materialForm input[type="url"],
-  #materialForm select {
-    width: calc(100% - 22px); /* Ustaw szerokość */
-    padding: 12px; /* Dodaj wewnętrzne marginesy */
-    margin-bottom: 15px; /* Dodaj odstęp od dołu */
-    border: none; /* Usuń obramowanie */
-    border-radius: 4px; /* Dodaj zaokrąglenie narożników */
-    box-sizing: border-box; /* Ustaw box-sizing na border-box */
-    background-color: #f3f3f3; /* Dodaj kolor tła */
-    border: 1px solid #ddd; /* Dodaj obramowanie */
-    transition: border-color 0.3s ease; /* Dodaj animację */
-  }
-  
-  #materialForm input[type="text"]:focus,
-  #materialForm input[type="url"]:focus,
-  #materialForm select:focus {
-    outline: none; /* Usuń domyślne podkreślenie */
-    border-color: #555; /* Zmień kolor obramowania po najechaniu */
-  }
-  
-  #materialForm textarea {
-    width: calc(100% - 22px); /* Ustaw szerokość */
-    padding: 12px; /* Dodaj wewnętrzne marginesy */
-    margin-bottom: 15px; /* Dodaj odstęp od dołu */
-    border: none; /* Usuń obramowanie */
-    border-radius: 4px; /* Dodaj zaokrąglenie narożników */
-    box-sizing: border-box; /* Ustaw box-sizing na border-box */
-    background-color: #f3f3f3; /* Dodaj kolor tła */
-    border: 1px solid #ddd; /* Dodaj obramowanie */
-    transition: border-color 0.3s ease; /* Dodaj animację */
-    resize: vertical; /* Ustaw możliwość zmiany rozmiaru tylko pionowo */
-  }
-  
-  #materialForm textarea:focus {
-    outline: none; /* Usuń domyślne podkreślenie */
-    border-color: #555; /* Zmień kolor obramowania po najechaniu */
-  }
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  line-height: 1.6;
+}
 
-/* Stylizacja pola do przesyłania pliku */
-#fileInput {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header-with-gif {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 1px;
+  width: 97%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: -1;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.gif-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%) contrast(120%);
+  animation: scaleAnimation 10s infinite alternate;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
   }
-  
- /* Ukryj oryginalny przycisk do wyboru pliku */
-#materialFile {
-    display: none;
+  100% {
+    transform: scale(1.05);
   }
-  
-  /* Stylizacja niestandardowego przycisku */
-  .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #007ba8;
-    color: #fff;
-    border-radius: 4px;
-  }
-  
-  .custom-file-upload:hover {
-    background-color: #0056b3;
-  }
-  
-  .close-btn {
-    background-color: transparent;
-    color: #007ba8;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    position: absolute; /* Ustaw pozycję przycisku */
-    top: 10px; /* Ustaw odstęp od góry */
-    right: 10px; /* Ustaw odstęp od prawej strony */
-  }
-  
-  .close-btn:hover {
-    color: #555; /* Kolor tekstu po najechaniu */
-  }
-  
-  a {
-    color: #007ba8;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: #0056b3;
-  }
-  
-  
+}
+
+#navbar {
+  position: absolute;
+  bottom: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#navbar ul li {
+  margin: 0;
+}
+
+#navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 15px 25px;
+  transition: color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+  color: #007bff;
+}
+
+.gif-background:hover img {
+  transform: scale(1.03);
+}
+
+#welcome1 {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+
+#welcome1 span {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+#logoutIcon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+main {
+  margin-top: 20px;
+}
+
+section {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 24px !important;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+section ul {
+  list-style: none;
+}
+
+section ul li {
+  margin-bottom: 10px;
+}
+
 footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #007ba8;
-    color: #fff;
-    border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #007ba8;
+  color: #fff;
+  border-radius: 8px;
+}
+
+#openFormBtn {
+  padding: 10px 20px;
+  background-color: #007ba8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#openFormBtn:hover {
+  background-color: #0056b3;
+}
+
+#graybox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#materialForm {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#materialForm button[type="submit"],
+#materialForm button[type="button"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007ba8;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#materialForm button[type="submit"]:hover,
+#materialForm button[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+#materialForm button[type="submit"]:focus,
+#materialForm button[type="button"]:focus {
+  outline: none;
+}
+
+#materialForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#materialForm input[type="text"],
+#materialForm input[type="url"],
+#materialForm select {
+  width: calc(100% - 22px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+#materialForm input[type="text"]:focus,
+#materialForm input[type="url"]:focus,
+#materialForm select:focus {
+  outline: none;
+  border-color: #555;
+}
+
+#materialForm textarea {
+  width: calc(100% - 22px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+#materialForm textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+#fileInput {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#materialFile {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007ba8;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  background-color: transparent;
+  color: #007ba8;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn:hover {
+  color: #555;
+}
+
+a {
+  color: #007ba8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #007ba8;
+  color: #fff;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 10px;
   }
-  
+
+  .header-with-gif {
+    height: 300px;
+  }
+
+  .gif-background {
+    width: 100%;
+    height: 200px;
+  }
+
+  .gif-background img {
+    animation: none;
+  }
+
+  #navbar {
+    bottom: 0;
+  }
+
+  #navbar ul li a {
+    color:#000000
+  }
+
+ 
+@media screen and (max-width: 768px) {
+  #welcome1 {
+    margin-left: 20px; 
+    margin-bottom: 20px; 
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+}
+
+  main {
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 10px;
+  }
+
+  section h2 {
+    font-size: 20px;
+  }
+
+  footer {
+    margin-top: 10px;
+    padding: 10px;
+  }
+}

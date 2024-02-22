@@ -16,6 +16,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  // Wysyłanie pliku index.html z głównego katalogu
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 //REJESTRACJA!!!
 
 // Trasa dla strony rejestracji (GET)

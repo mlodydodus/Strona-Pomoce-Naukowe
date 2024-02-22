@@ -352,3 +352,35 @@ footer {
   color: #0056b3;
 }
 
+/* Dla urządzeń o szerokości do 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .subject-tile {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* Dla urządzeń o szerokości do 576px */
+@media (max-width: 576px) {
+  .subject-tile {
+    flex: 0 0 calc(100% - 20px);
+  }
+
+  #navbar {
+    position: static;
+    text-align: center;
+    padding: 10px;
+  }
+
+  #navbar ul {
+    display: inline-block;
+  }
+
+  #navbar ul li {
+    margin: 0 10px;
+  }
+}
+

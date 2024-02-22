@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registrationForm');
     const successMessage = document.getElementById('successMessage');
-    
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -20,15 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                // Przekieruj użytkownika na stronę logowania po pomyślnym zarejestrowaniu
-                window.location.href = '/login';
+                // Wyświetl komunikat o pomyślnym zarejestrowaniu
+                successMessage.innerText = 'Zarejestrowano pomyślnie!';
+                // Wyśrodkuj komunikat
+                successMessage.style.display = 'block';
+                // Opóźnij przekierowanie na stronę logowania po wyświetleniu komunikatu
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 2000); // Opóźnienie przekierowania wynosi 2000 milisekund (2 sekundy)
             } else {
                 throw new Error('Wystąpił błąd podczas rejestracji.');
             }
-        })
-        .then(data => {
-            // Wyświetl komunikat o pomyślnym zarejestrowaniu
-            successMessage.innerText = 'Zarejestrowano pomyślnie!';
         })
         .catch(error => {
             console.error('Wystąpił błąd:', error);

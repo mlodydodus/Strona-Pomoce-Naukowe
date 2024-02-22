@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strona z Materiałami Naukowymi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="strona-glowna">
+  <div class="container">
+    <div class="container">
+      <header class="header-with-gif">
+        <div class="gif-background">
+          <img src="ikony przedmioty/szkola.gif" alt="Szkola GIF">
+        </div>
+        <nav id="navbar">
+          <ul>
+            <li><a href="#home" class="nav-link">Strona główna</a></li>
+            <li><a href="#subjects" class="nav-link">Wybierz Przedmiot</a></li>
+            <li><a href="#about" class="nav-link">O Nas</a></li>
+            <li><a href="#contact" class="nav-link">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <a href="/login" class="login-btn">Zaloguj</a>
+          <a href="/register" class="register-btn">Zarejestruj</a>
+        </div>
+          <div id="welcome1" style="display: none;"><span id="loggedInUserName"></span> <span id="logoutIcon" style="display: none;">🍃</span></div>
+      </header>
+    
+
+  <main>
+
+    <section id="welcome">
+      <h2>Witaj na naszej stronie!</h2>
+      <p>Jesteśmy tu, aby dzielić się fascynującymi materiałami naukowymi. Odkryj świat wiedzy razem z nami!</p>
+    </section>
+    
+    <section id="classes">
+      <h2>Wybierz Klasę</h2>
+      <select id="class-select">
+        <option value="3" id="Klasa">Wybierz Klasę</option>
+        <option value="4" id="Klasa-4">Klasa 4</option>
+        <option value="5" id="Klasa-5">Klasa 5</option>
+        <option value="6" id="Klasa-6">Klasa 6</option>
+        <option value="7" id="Klasa-7">Klasa 7</option>
+        <option value="8" id="Klasa-8">Klasa 8</option>
+      </select>
+    </section>
+    
+    <section id="subjects">
+      <h2>Wybierz Przedmiot</h2>
+      <div class="subject-tiles">
+        <a href="#" class="subject-tile" data-subject="Matematyka">
+          <img src="ikony przedmioty/matma.png" alt="matma">
+          <span>Matematyka</span>
+        </a>
+        <a href="#" class="subject-tile" data-subject="Nauki_przyrodnicze">
+          <img src="ikony przedmioty/przyrka.png" alt="przyrka">
+          <span>Nauki przyrodnicze</span>
+        </a>
+        <a href="#" class="subject-tile" data-subject="Jezyk_polski">
+          <img src="ikony przedmioty/polski.png" alt="polski">
+          <span>Język Polski</span>
+        </a>
+      </div>
+    </section>
+    
+      <div id="messageDiv"></div>
+  
+  <main>
+    <section id="about">
+      <h2>O Nas</h2>
+      <p>Witaj na naszej stronie! Jesteśmy zespołem entuzjastów nauki, których pasją jest dzielenie się wiedzą i inspiracja do odkrywania nowych rzeczy. Naszą misją jest stworzenie miejsca, gdzie każdy może znaleźć fascynujące treści edukacyjne, niezależnie od wieku czy poziomu wiedzy. Dzięki różnorodnym materiałom oraz innowacyjnym podejściom, pragniemy wspierać rozwój i ciekawość każdego, kto odwiedzi naszą stronę. Dołącz do naszej podróży po fascynującym świecie nauki i poznawaj razem z nami!</p>
+    </section>
+
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <form id="contact-form">
+        <input type="text" id="name" name="name" placeholder="Imię" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <textarea id="message" name="message" placeholder="Wiadomość" required></textarea>
+        <button type="submit">Wyślij</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Strona z Materiałami Naukowymi</p>
+  </footer>
+</div>
+
+<script src="user.js"></script>
+<script src="save.js"></script>
+<script src="script.js"></script>
+<script src="login.js"></script>
+<script src="email.js"></script>
+  </div>
+</body>
+</html>

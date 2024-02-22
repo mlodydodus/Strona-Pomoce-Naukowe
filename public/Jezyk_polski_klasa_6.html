@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Język polski Klasa 6</title>
+<link rel="stylesheet" href="modulystyle.css">
+</head>
+<body id="strona-glowna">
+  <div class="container">
+    <header class="header-with-gif">
+      <div class="gif-background">
+        <img src="ikony przedmioty/polski.png" alt="Szkola GIF">
+      </div>
+      <nav id="navbar">
+        <ul>
+          <li><a href="/" class="nav-link">Strona główna</a></li>
+          <li><a href="#addMaterial" class="nav-link">Dodaj materiał</a></li>
+        </ul>
+      </nav>
+      <div id="welcome1" style="display: none;"><span id="loggedInUserName"></span> <span id="logoutIcon" style="display: none;">🍃</span></div>
+    </header>
+    
+    <div class="container">
+    <main>
+      <section id="welcome">
+        <h2>Witaj w module Język polski klasa 6!</h2>
+        <p>Tutaj znajdziesz wiele ciekawych informacji oraz będziesz mógł rozwiązywać testy, aby sprawdzić swoją wiedzę.</p>
+      </section>
+      <section id="materials">
+        <h2>Materiały PDF</h2>
+        
+      </section>
+    
+      <section id="videos">
+        <h2>Filmy</h2>
+        
+      </section>
+    
+      <section id="tests">
+        <h2>Testy</h2>
+        
+      </section>
+    
+  <!-- Sekcja dodawania materiału -->
+  <section id="addMaterial">
+    <h2>Dodaj materiał</h2>
+    <button id="openFormBtn">Dodaj materiał</button>
+    <!-- Graybox z formularzem -->
+    <div id="graybox" class="graybox">
+      <div class="graybox-content">
+        <!-- Przycisk zamykający -->
+        <!-- Formularz -->
+        <form id="materialForm">
+            <span class="close-btn" id="closeFormBtn">&times;</span>
+          <label for="materialType">Typ materiału:</label>
+          <select id="materialType" name="materialType">
+            <option value="pdf">PDF</option>
+            <option value="video">Film</option>
+            <option value="test">Test</option>
+          </select>
+          <br>
+          <label for="materialTitle">Tytuł materiału:</label>
+          <input type="text" id="materialTitle" name="materialTitle" required>
+          <br>
+          <div id="fileInput">
+            <label for="materialFile" class="custom-file-upload">Wybierz plik</label>
+            <input type="file" id="materialFile" name="materialFile" onchange="updateFileName(this)">
+            <span id="fileName"></span>
+          </div>
+          
+          <div id="urlInput">
+            <label for="materialURL">URL materiału:</label>
+            <input type="url" id="materialURL" name="materialURL">
+          </div>
+          <button type="submit">Dodaj</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+      
+          <footer>
+            <p>&copy; 2024 Strona z Materiałami Naukowymi</p>
+          </footer>
+    </main>
+      
+    </div>
+    
+    <script src="user.js"></script>
+    <script src="material.js"></script>
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+    
+    
+    </body>
+    </html>

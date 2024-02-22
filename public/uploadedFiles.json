@@ -1,0 +1,15 @@
+[
+    {
+      "fileName": "nazwa_pliku.pdf",
+      "fileSize": "1024 KB",
+      "mimeType": "application/pdf",
+      "filePath": "/uploads/nazwa_pliku.pdf"
+    },
+    {
+      "fileName": "video.mp4",
+      "fileSize": "2048 KB",
+      "mimeType": "video/mp4",
+      "filePath": "/uploads/video.mp4"
+    }
+  ]
+  

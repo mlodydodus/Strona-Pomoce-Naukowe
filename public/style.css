@@ -1,0 +1,354 @@
+/* Resetowanie stylów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styl dla kontenera */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  
+}
+
+/* Styl dla nagłówka z tłem GIF */
+.header-with-gif {
+  position: relative;
+  height: 400px; /* Ustawienie wysokości dla nagłówka */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styl dla tła GIF */
+.gif-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden; /* Zapobiega wyświetlaniu obrazów, które wykraczają poza obszar tła */
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.gif-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%) contrast(120%); /* Regulacja jasności i kontrastu */
+  animation: scaleAnimation 10s infinite alternate; /* Animacja dla tła GIF */
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Styl dla nawigacji */
+#navbar {
+  position: absolute;
+  bottom: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#navbar ul li {
+  margin: 0;
+}
+
+#navbar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 15px 25px; /* Zwiększenie odstępów */
+  transition: color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+  color: #007bff;
+}
+
+/* Dodatkowe style dla efektu przy najechaniu */
+.gif-background:hover img {
+  transform: scale(1.03); /* Powiększenie tła GIF przy najechaniu myszką */
+}
+
+/* Styl dla przycisków Zaloguj i Zarejestruj */
+.auth-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn,
+.register-btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  color: #0056b3;
+}
+
+.login-btn:focus,
+.register-btn:focus {
+  outline: none;
+}
+
+/* Styl dla kontenera powitalnego */
+#welcome1 {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Styl dla powitania */
+#welcome1 span {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* Styl dla ikony wylogowania */
+#logoutIcon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+
+main {
+  margin-top: 20px;
+}
+
+section {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+/* Stylizacja sekcji */
+#classes {
+  margin-top: 20px; /* Odstęp od góry */
+}
+
+/* Stylizacja nagłówka */
+#classes h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px; /* Odstęp od dolu */
+}
+
+/* Stylizacja selecta */
+#class-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none; /* Usunięcie obramowania przy aktywacji */
+  transition: border-color 0.3s ease; /* Animacja przy najechaniu myszką */
+}
+
+#class-select:hover {
+  border-color: #555; /* Zmiana koloru obramowania po najechaniu myszką */
+}
+
+
+/* Stylizacja kafelków */
+.subject-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Odstęp między kafelkami */
+}
+
+.subject-tile {
+  flex: 0 0 calc(33.33% - 20px); /* Ustawienie szerokości na 1/3 kontenera z odstępem między kafelkami */
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden; /* Ukrycie zawartości, która przekracza kafelek */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny efekt cienia */
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.subject-tile:hover {
+  transform: translateY(-5px); /* Lekkie uniesienie po najechaniu myszką */
+}
+
+.subject-tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.subject-tile span {
+  display: block;
+  padding: 15px 10px;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  text-decoration: none; /* Usunięcie domyślnego podkreślenia */
+}
+
+.subject-tile:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Zwiększenie efektu cienia po najechaniu myszką */
+}
+
+.subject-tile:hover img {
+  transform: scale(1.1); /* Powiększenie ikony po najechaniu myszką */
+}
+
+.subject-tile:hover span {
+  color: #0056b3; /* Zmiana koloru tekstu po najechaniu myszką */
+}
+
+
+
+section h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+section ul {
+  list-style: none;
+}
+
+section ul li {
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #007ba8;
+  color: #fff;
+  border-radius: 8px;
+}
+
+
+/* Stylizacja sekcji O Nas */
+#about-us {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#about-us h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#about-us p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Stylizacja formularza kontaktowego */
+#contact-form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+  width: calc(100% - 22px);
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+#contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+#contact-form button[type="submit"] {
+  width: calc(100% - 22px);
+  padding: 12px;
+  background-color: #007ba8;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Usunięcie domyślnego podkreślenia dla linków w formularzu */
+#contact-form a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+#contact-form a:hover {
+  color: #0056b3;
+}
+
